@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Srishalini Muthukumar | Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#0f1330;--bg2:#171c45;--ink:#eef0ff;--mute:#a9afd8;--apple:#ff4d5e;--gold:#f4c542;--leaf:#3fa56b;--line:#2b3270;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1330}}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#0f1330}}
+:root[data-theme="dark"]{--bg:#0f1330}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+body:not(.done){overflow:hidden;height:100vh}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0}
+a{color:var(--gold)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* ---------- intro scene ---------- */
+#scene{position:fixed;inset:0;z-index:10;background:linear-gradient(#070a22 0%,#1b2260 55%,#3a3f8f 78%,#2f7d4f 78.1%,#1f5a37 100%);transition:opacity .8s,visibility .8s}
+body.done #scene{opacity:0;visibility:hidden;pointer-events:none}
+#stars span{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s infinite}
+@keyframes tw{50%{opacity:.15}}
+#scene svg{position:absolute;inset:0;width:100%;height:100%}
+#cap{position:absolute;left:0;right:0;top:9%;text-align:center;font:500 clamp(20px,3.4vw,34px)/1.3 Fraunces,Georgia,serif;padding:0 20px;min-height:2.6em}
+#cap b{color:var(--gold)}
+#skip{position:absolute;right:16px;top:calc(12px + env(safe-area-inset-top,0px));background:none;border:1px solid var(--line);color:var(--mute);padding:8px 14px;border-radius:20px;font:inherit;font-size:14px;cursor:pointer}
+#flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,#fff 0,#ffe98a 40%,transparent 75%);opacity:0;pointer-events:none}
+.flash #flash{animation:fl 1.1s ease-out forwards}
+@keyframes fl{0%{opacity:0;transform:scale(.2)}35%{opacity:1}100%{opacity:1;transform:scale(3)}}
+
+.apple,.newton,.stars,.bulb,.bonk{transform-box:fill-box}
+.apple{transform-origin:center}
+.wiggle .apple{transform-origin:50% 0;animation:wig .35s 5 alternate}
+@keyframes wig{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.fall .apple{animation:fall 1.1s forwards}
+@keyframes fall{0%{transform:translateY(0);animation-timing-function:cubic-bezier(.5,0,1,.7)}
+60%{transform:translateY(74px);animation-timing-function:ease-out}
+75%{transform:translateY(46px) translateX(14px) rotate(80deg);animation-timing-function:cubic-bezier(.5,0,1,.7)}
+100%{transform:translateY(212px) translateX(64px) rotate(300deg)}}
+.newton{transform-origin:50% 100%}
+.hit .newton{animation:shake .5s}
+@keyframes shake{20%{transform:translateY(8px) rotate(-4deg)}50%{transform:translateY(0) rotate(3deg)}80%{transform:rotate(-2deg)}}
+.xeyes,.stars,.bulb,.bonk{opacity:0}
+.hit .eyes{display:none}.hit .xeyes{display:block}.bulb-on .xeyes{display:none}.bulb-on .eyes{display:block}
+.hit .stars{opacity:1;animation:spin 1.6s linear infinite;transform-origin:center}
+.hit .bonk{animation:pop .9s forwards}
+.bulb-on .stars{opacity:0;animation:none}
+.bulb-on .bulb{opacity:1;animation:pop .6s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{0%{opacity:0;transform:scale(.2)}50%{opacity:1;transform:scale(1.25)}100%{opacity:1;transform:scale(1)}}
+.leaves{animation:sway 5s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes sway{to{transform:rotate(1.2deg)}}
+
+/* ---------- site ---------- */
+#rain{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+#rain span{position:absolute;top:-40px;font-size:22px;opacity:.16;animation:drop linear infinite}
+@keyframes drop{to{transform:translateY(115vh) rotate(360deg)}}
+main,footer{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 22px}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:60px}
+.hero h1{font-size:clamp(42px,9vw,92px);font-weight:700;letter-spacing:-.02em}
+.hero p.lead{font-size:clamp(18px,2.4vw,24px);color:var(--mute);max-width:34em;margin:22px 0 28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{border:1px solid var(--line);background:var(--bg2);padding:5px 13px;border-radius:99px;font-size:15px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:12px 24px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--apple)}
+.btn.p{background:var(--apple);color:#1a0509}.btn.s{color:var(--ink)}
+section{padding:70px 0 10px}
+h2{font-size:clamp(30px,5vw,46px);margin-bottom:28px}
+h2::after{content:"";display:block;width:56px;height:6px;border-radius:3px;background:var(--apple);margin-top:12px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:22px}
+.card h3{font-size:24px}.meta{color:var(--mute);font-size:15px;margin:4px 0 14px}
+.card ul{margin:0;padding-left:20px}.card li{margin:7px 0}
+.tl{border-left:3px solid var(--line);margin-left:6px;padding-left:22px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-33px;top:32px;width:15px;height:15px;border-radius:50%;background:var(--apple);border:3px solid var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.grid .card{margin:0}.grid h3{font-size:20px;margin-bottom:12px}
+.cert{display:flex;gap:14px;align-items:center}.cert i{font-style:normal;font-size:26px}
+.cert small{display:block;color:var(--mute)}
+footer{padding:80px 22px 60px;text-align:center}
+footer h2::after{margin:12px auto 0}
+button.replay{background:none;border:1px solid var(--line);color:var(--mute);padding:10px 18px;border-radius:12px;font:inherit;cursor:pointer;margin-top:26px}
+.reveal{opacity:0;transform:translateY(-46px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .5s,transform .8s cubic-bezier(.34,1.56,.64,1)}
+
+/* clouds */
+.clouds{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.clouds.fixedc{position:fixed;z-index:0}
+.clouds{--c0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Ccircle cx='48' cy='66' r='20' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='78' cy='48' r='26' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='112' cy='40' r='30' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='148' cy='52' r='24' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='172' cy='68' r='17' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='100' cy='70' r='24' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Cellipse cx='100' cy='76' rx='80' ry='17' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='48' cy='66' r='20' fill='%23eaf3ff'/%3E%3Ccircle cx='78' cy='48' r='26' fill='%23eaf3ff'/%3E%3Ccircle cx='112' cy='40' r='30' fill='%23eaf3ff'/%3E%3Ccircle cx='148' cy='52' r='24' fill='%23eaf3ff'/%3E%3Ccircle cx='172' cy='68' r='17' fill='%23eaf3ff'/%3E%3Ccircle cx='100' cy='70' r='24' fill='%23eaf3ff'/%3E%3Cellipse cx='100' cy='76' rx='80' ry='17' fill='%23eaf3ff'/%3E%3Cpath d='M70 84q30 8 66 0' stroke='%23c5d9fb' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");--c1:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Ccircle cx='40' cy='68' r='17' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='68' cy='52' r='23' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='98' cy='60' r='26' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='128' cy='42' r='28' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='160' cy='60' r='22' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='180' cy='72' r='12' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Cellipse cx='105' cy='78' rx='78' ry='15' fill='%237fa6ea' stroke='%237fa6ea' stroke-width='7'/%3E%3Ccircle cx='40' cy='68' r='17' fill='%23eaf3ff'/%3E%3Ccircle cx='68' cy='52' r='23' fill='%23eaf3ff'/%3E%3Ccircle cx='98' cy='60' r='26' fill='%23eaf3ff'/%3E%3Ccircle cx='128' cy='42' r='28' fill='%23eaf3ff'/%3E%3Ccircle cx='160' cy='60' r='22' fill='%23eaf3ff'/%3E%3Ccircle cx='180' cy='72' r='12' fill='%23eaf3ff'/%3E%3Cellipse cx='105' cy='78' rx='78' ry='15' fill='%23eaf3ff'/%3E%3Cpath d='M70 84q30 8 66 0' stroke='%23c5d9fb' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
+.cloud{position:absolute;left:-300px;top:var(--t);width:var(--w);height:calc(var(--w)*.5);background:var(--img) center/contain no-repeat;opacity:var(--o);animation:cdrift var(--d) linear infinite;animation-delay:var(--dl)}
+@keyframes cdrift{to{transform:translateX(calc(100vw + 640px))}}
+/* name letters */
+.hero h1 .word{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;opacity:0}
+.done .ch{animation:ldrop .8s cubic-bezier(.34,1.56,.64,1) calc(var(--i)*45ms) both}
+@keyframes ldrop{from{opacity:0;transform:translateY(-140px) rotate(-25deg)}to{opacity:1;transform:none}}
+.btn{font:inherit;font-weight:700;cursor:pointer}.btn.s{background:transparent}
+/* project mini demos */
+.demo{position:relative;height:84px;border-radius:14px;background:linear-gradient(#232a63,#171c45);margin-bottom:18px;overflow:hidden;display:flex;align-items:center;gap:14px;padding-left:28px;font-size:34px}
+.wallet{animation:wb 4s infinite}
+@keyframes wb{0%,30%{transform:none}35%{transform:scale(1.3)}45%,100%{transform:none}}
+.coin{position:absolute;left:34px;top:-30px;font-size:26px;animation:cf 4s infinite}
+@keyframes cf{0%{transform:translateY(0);opacity:1}30%{transform:translateY(58px);opacity:1}32%,100%{transform:translateY(58px);opacity:0}}
+.msg{font-size:14px;background:#1f9d55;color:#fff;padding:8px 14px;border-radius:14px 14px 14px 4px;margin-left:12px;opacity:0;animation:mp 4s infinite}
+@keyframes mp{0%,34%{opacity:0;transform:translateX(-20px) scale(.8)}42%,85%{opacity:1;transform:none}95%,100%{opacity:0}}
+.demo .st{animation:stp 4.5s infinite backwards}
+.demo .st:nth-child(2){animation-delay:.5s}.demo .st:nth-child(3){animation-delay:1s}.demo .st:nth-child(4){animation-delay:1.5s}
+@keyframes stp{0%,10%{opacity:0;transform:translateY(-24px) scale(.6)}25%,80%{opacity:1;transform:none}92%,100%{opacity:0}}
+.demo .tag{font-size:14px;background:var(--apple);color:#1a0509;padding:8px 14px;border-radius:14px;font-weight:700}
+/* extra motion */
+.card.in:hover{transform:translateY(-5px);border-color:var(--apple)}
+.reveal.in .chips li{animation:chip .55s cubic-bezier(.34,1.56,.64,1) calc(var(--i)*70ms + .3s) backwards}
+@keyframes chip{from{opacity:0;transform:translateY(-26px) scale(.6)}}
+.hero-apple{position:absolute;right:6%;top:18%;font-size:64px;animation:bob 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes bob{50%{transform:translateY(18px) rotate(12deg)}}
+@media (max-width:640px){.hero-apple{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.ch{opacity:1;transform:none}.cloud{display:none}.msg{opacity:1}}
+</style>
+</head>
+<body>
+
+<div id="scene" aria-label="Animated intro">
+  <div id="stars"></div>
+  <div id="cap"></div>
+  <button id="skip">Skip intro</button>
+  <div class="clouds" id="sc"></div>
+  <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <ellipse cx="90" cy="90" rx="34" ry="34" fill="#fff6c8" opacity=".9"/>
+    <!-- tree -->
+    <rect x="585" y="230" width="34" height="200" rx="8" fill="#6b4226"/>
+    <path d="M602 270 Q540 230 470 196" stroke="#6b4226" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <g class="leaves" fill="#2f8f57">
+      <circle cx="600" cy="170" r="95"/><circle cx="520" cy="200" r="70"/><circle cx="690" cy="210" r="70"/>
+      <circle cx="450" cy="215" r="50"/><circle cx="640" cy="110" r="60" fill="#38a565"/><circle cx="540" cy="130" r="58" fill="#38a565"/>
+    </g>
+    <!-- Newton -->
+    <g class="newton">
+      <rect x="440" y="404" width="118" height="28" rx="14" fill="#2b3270"/>
+      <circle cx="562" cy="418" r="15" fill="#1a1f4d"/>
+      <ellipse cx="470" cy="392" rx="46" ry="44" fill="#3b4396"/>
+      <path d="M470 352 v80" stroke="#f4c542" stroke-width="3" stroke-dasharray="3 9"/>
+      <circle cx="437" cy="338" r="19" fill="#f2f2f7"/><circle cx="503" cy="338" r="19" fill="#f2f2f7"/>
+      <circle cx="440" cy="362" r="18" fill="#f2f2f7"/><circle cx="500" cy="362" r="18" fill="#f2f2f7"/>
+      <circle cx="470" cy="340" r="27" fill="#f3c9a0"/>
+      <path d="M441 322 Q470 288 499 322 Q470 312 441 322Z" fill="#f2f2f7"/><circle cx="470" cy="312" r="16" fill="#f2f2f7"/>
+      <g class="eyes" fill="#222"><circle cx="460" cy="340" r="3"/><circle cx="480" cy="340" r="3"/></g>
+      <g class="xeyes" stroke="#222" stroke-width="2.5" stroke-linecap="round"><path d="M455 335l9 9M464 335l-9 9M476 335l9 9M485 335l-9 9"/></g>
+      <path d="M462 354 q8 6 16 0" stroke="#8a4b3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- apple -->
+    <g class="apple">
+      <path d="M470 186 q0 -14 8 -20" stroke="#5a3a1a" stroke-width="3" fill="none"/>
+      <path d="M478 168 q12 -6 16 4 q-10 6 -16 -4Z" fill="#3fa56b"/>
+      <circle cx="463" cy="200" r="14" fill="#e8283b"/><circle cx="477" cy="200" r="14" fill="#e8283b"/>
+      <ellipse cx="465" cy="195" rx="4" ry="6" fill="#ff8a95" opacity=".7"/>
+    </g>
+    <g class="stars" fill="#f4c542" font-size="20" text-anchor="middle"><text x="440" y="285">★</text><text x="470" y="272">★</text><text x="500" y="285">★</text></g>
+    <text class="bonk" x="530" y="270" fill="#ff4d5e" font-family="Fraunces,Georgia,serif" font-size="42" font-weight="700">BONK!</text>
+    <g class="bulb"><circle cx="470" cy="262" r="17" fill="#ffe98a"/><rect x="463" y="276" width="14" height="9" rx="2" fill="#a9afd8"/>
+      <path d="M470 232v-12M446 244l-9-8M494 244l9-8M440 262h-12M500 262h12" stroke="#ffe98a" stroke-width="3" stroke-linecap="round"/></g>
+  </svg>
+  <div id="flash"></div>
+</div>
+
+<div class="clouds fixedc" id="wc" aria-hidden="true"></div>
+<div id="rain" aria-hidden="true"></div>
+
+<main>
+  <header class="hero">
+    <span class="hero-apple" aria-hidden="true">🍎</span>
+    <h1 id="nm" aria-label="Srishalini Muthukumar">Srishalini Muthukumar</h1>
+    <p class="lead reveal">Final-year IT engineering student who builds software people actually use, and is heading into machine learning and AI.</p>
+    <ul class="chips reveal"><li>Software Developer</li><li>Data Science</li><li>ASP.NET &amp; React</li><li>Python &amp; ML</li></ul>
+    <div class="btns reveal"><a class="btn p" href="#projects">See my projects</a><button class="btn s dl" type="button">Download resume</button><a class="btn s" href="mailto:shalinimuthukumar.it.sit@gmail.com">Email me</a></div>
+  </header>
+
+  <section id="about">
+    <h2 class="reveal">About me</h2>
+    <div class="card reveal"><p style="margin:0">I'm studying B.E. Information Technology at Sinhgad Institute of Technology (CGPA 7.89/10, graduating 2027). I like taking a real problem, such as billing records for 700+ residents or cash-free spending across a whole city, and shipping something that works. Along the way I've picked up data science and machine learning, and that is where I want to go next.</p></div>
+  </section>
+
+  <section id="experience">
+    <h2 class="reveal">Experience</h2>
+    <div class="tl">
+      <article class="card reveal"><h3>Software Developer, Sahara India Group</h3><p class="meta">Jan 2026 to Aug 2026 · Hotels, restaurants and software</p>
+        <ul><li>Developed and tested the EC Portal, giving 700+ residents secure access to billing records (ASP.NET MVC, C#, HTML5, CSS3, JavaScript).</li>
+        <li>Built automated tests for live SQL Server transactions and API data flow, cutting invoice-generation errors by 15%.</li>
+        <li>Worked with cross-functional Agile teams to design, deploy and cross-browser test the NDC and water statement modules.</li>
+        <li>Connected front-end interfaces to back-end services and fixed hardware and software issues to keep the portal reliable.</li></ul></article>
+      <article class="card reveal"><h3>Data Scientist Intern, Corizo Edutech</h3><p class="meta">Dec 2024 to Feb 2025 · Education</p>
+        <ul><li>Explored, visualized and modeled real-world datasets.</li>
+        <li>Implemented regression, classification and clustering models and evaluated their performance.</li>
+        <li>Communicated insights with Python, Pandas, NumPy, Matplotlib and Seaborn.</li>
+        <li>Worked in Jupyter, Google Colab and Git/GitHub.</li></ul></article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="reveal">Projects</h2>
+    <article class="card reveal"><h3>MobilePe, a cashless wallet for Aamby Valley City</h3><p class="meta">Jul 2026 to Aug 2026 · Solo project · React, SQL Server, 11za WhatsApp API</p>
+      <div class="demo" aria-hidden="true"><span class="coin">🪙</span><span class="wallet">👛</span><span class="msg">💬 Amount spent + balance left</span></div>
+      <p>Guests deposit cash at reception and get a digital wallet tied to their phone number. Every purchase across the property is deducted automatically, and a WhatsApp message confirms the amount spent and the balance left.</p>
+      <ul><li>Built the React frontend for the wallet.</li><li>Sent real-time WhatsApp notifications through 11za for every transaction.</li>
+      <li>Pulled billing data from the city's IDS billing software, using the phone number as the unique ID.</li><li>Supported the refund flow so unused balance goes back to the guest.</li></ul>
+      <p style="margin-bottom:0"><a href="https://webapp.aambyvalleyltd.org/Mobilepe/" target="_blank" rel="noopener">Open MobilePe</a></p></article>
+    <article class="card reveal"><h3>EC Portal</h3><p class="meta">Jan 2026 to Apr 2026 · Team of 2 · ASP.NET, SQL Server, Generative AI APIs</p>
+      <div class="demo" aria-hidden="true"><span class="st">📄</span><span class="st">➜</span><span class="st">🤖</span><span class="st tag">Invoice summary</span></div>
+      <p>A portal where residents securely view and download city maintenance and water invoices using their CPID.</p>
+      <ul><li>Wrote test cases and test plans for secure online bank payments and reliable NDC invoices.</li><li>Added Generative AI APIs to answer support queries and summarize invoice data on the dashboard.</li></ul></article>
+  </section>
+
+  <section id="skills">
+    <h2 class="reveal">Skills</h2>
+    <div class="grid">
+      <div class="card reveal"><h3>Languages</h3><ul class="chips"><li>Python</li><li>C#</li><li>C++</li><li>Java</li><li>JavaScript</li></ul></div>
+      <div class="card reveal"><h3>Web</h3><ul class="chips"><li>ASP.NET MVC</li><li>React</li><li>HTML5</li><li>CSS3</li></ul></div>
+      <div class="card reveal"><h3>Data and ML</h3><ul class="chips"><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Regression</li><li>Classification</li><li>Clustering</li></ul></div>
+      <div class="card reveal"><h3>Databases and tools</h3><ul class="chips"><li>SQL Server</li><li>MySQL</li><li>Git &amp; GitHub</li><li>Docker</li><li>Jupyter</li><li>Colab</li></ul></div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2 class="reveal">Certifications and hackathons</h2>
+    <div class="grid">
+      <div class="card cert reveal"><i>🏆</i><div>Technoverse Hackathon<small>Cognizant</small></div></div>
+      <div class="card cert reveal"><i>🤖</i><div>Getting Started with AI on Jetson Nano<small>NVIDIA</small></div></div>
+      <div class="card cert reveal"><i>💬</i><div>Building with the Claude API<small>Anthropic</small></div></div>
+      <div class="card cert reveal"><i>📈</i><div>McKinsey.org Forward Program<small>McKinsey &amp; Company</small></div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <h2 class="reveal">Let's talk</h2>
+  <p class="reveal">Open to software and ML opportunities. Based in Lonavla, Maharashtra.</p>
+  <p class="reveal"><a class="btn p" href="mailto:shalinimuthukumar.it.sit@gmail.com">shalinimuthukumar.it.sit@gmail.com</a> <button class="btn s dl" type="button">Download resume</button></p>
+  <button class="replay" id="replay">Replay the apple 🍎</button>
+</footer>
+
+<script>
+(function(){
+  var scene=document.getElementById('scene'),cap=document.getElementById('cap'),body=document.body,timers=[];
+  var st=document.getElementById('stars');
+  for(var i=0;i<70;i++){var s=document.createElement('span');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*60+'%';s.style.animationDelay=Math.random()*3+'s';st.appendChild(s);}
+  var rain=document.getElementById('rain');
+  for(var j=0;j<7;j++){var a=document.createElement('span');a.textContent='🍎';a.style.left=(8+j*14)+'%';a.style.animationDuration=(14+j*3)+'s';a.style.animationDelay=(-j*4)+'s';rain.appendChild(a);}
+
+
+  function clouds(el,n,top0,top1,o0,o1){for(var k=0;k<n;k++){var c=document.createElement('div');c.className='cloud';
+    c.style.setProperty('--w',(140+Math.random()*180)+'px');c.style.setProperty('--img','var(--c'+(k%2)+')');c.style.setProperty('--t',(top0+Math.random()*(top1-top0))+'%');
+    c.style.setProperty('--d',(70+Math.random()*60)+'s');c.style.setProperty('--dl',(-Math.random()*130)+'s');
+    c.style.setProperty('--o',(o0+Math.random()*(o1-o0)).toFixed(2));el.appendChild(c);}}
+  clouds(document.getElementById('sc'),6,6,48,.5,.8);
+  clouds(document.getElementById('wc'),8,4,88,.14,.26);
+  var nm=document.getElementById('nm'),idx=0;
+  nm.innerHTML=nm.textContent.split(' ').map(function(w){return '<span class="word" aria-hidden="true">'+w.split('').map(function(c){return '<span class="ch" style="--i:'+(idx++)+'">'+c+'</span>';}).join('')+'</span>';}).join(' ');
+  document.querySelectorAll('.chips').forEach(function(ul){ul.querySelectorAll('li').forEach(function(li,i){li.style.setProperty('--i',i);});});
+  document.querySelectorAll('.dl').forEach(function(btn){btn.addEventListener('click',function(){
+    var a=document.createElement('a');a.href='Srishalini_Muthukumar_Resume.pdf';a.download='Srishalini_Muthukumar_Resume.pdf';
+    document.body.appendChild(a);a.click();a.remove();
+  });});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  function observe(){document.querySelectorAll('.reveal').forEach(function(el){el.classList.remove('in');io.observe(el);});}
+
+  function at(ms,fn){timers.push(setTimeout(fn,ms));}
+  function say(t){cap.innerHTML=t;}
+  function finish(){timers.forEach(clearTimeout);timers=[];scene.className='';body.classList.add('done');window.scrollTo(0,0);observe();}
+  function play(){
+    timers.forEach(clearTimeout);timers=[];
+    body.classList.remove('done');scene.className='';window.scrollTo(0,0);
+    say('Woolsthorpe, 1666. A quiet afternoon under an apple tree.');
+    at(2200,function(){say('Sir Isaac is thinking <b>very</b> hard...');scene.classList.add('wiggle');});
+    at(4200,function(){scene.classList.remove('wiggle');scene.classList.add('fall');});
+    at(4880,function(){scene.classList.add('hit');say('Ouch.');});
+    at(6300,function(){scene.classList.add('bulb-on');say('<b>Eureka!</b> What goes up must come down. Now meet the person behind this page.');});
+    at(8300,function(){scene.classList.add('flash');});
+    at(9000,finish);
+  }
+  document.getElementById('skip').onclick=finish;
+  document.getElementById('replay').onclick=play;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){finish();}else{play();}
+})();
+</script>
+</body>
+</html>
